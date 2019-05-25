@@ -1,0 +1,2 @@
+module UserCollectionsHelper
+end

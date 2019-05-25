@@ -1,0 +1,21 @@
+document.addEventListener("turbolinks:load", function(){
+	$(".useract_fecha").on("focusin", '#event_start', function(){
+		$(this).datetimepicker(
+			{
+				format:'YYYY/MM/DD',
+				icons: {
+					time: 'fa fa-clock-o',
+					down: 'fa fa-chevron-down',
+					previous: 'fa fa-chevron-left',
+					next: 'fa fa-chevron-right',
+					today: 'fa fa-calendar-check-o',
+					clear: 'fa fa-trash-o',
+ 					close: 'fa fa-close'
+				}
+			},
+
+
+			);
+	})
+})
+	

@@ -1,0 +1,105 @@
+
+<div style="display: none">
+<% if user_signed_in? %>
+	<%= form_with model: @activity, url: user_activities_path, method: :post, local: true do |f| %>
+
+		<%= f.label :registrar_actividad %>
+		<%= f.collection_select :activity_id, @user_activities, :id, :name, :prompt => true %>
+
+		<%= f.submit "Enviar" %>
+
+	<% end %>
+</div>
+
+	<%= link_to 'Crear actividad nueva', new_activity_path %><br>
+
+<% end %>
+<br>
+<form>
+	<input name="q" placeholder="Buscar...">
+</form>
+<div id="resultado">
+	<%= render 'activity' %>
+</div>
+<hr>
+
+<div class="row">
+	<div class="col-md-3 col-sm-12">
+		<br><br>
+		<h3>Colecciones</h3>
+		<% @collections.each do |collection| %>
+			<div class="collection_index" style="padding: 5px 0 0 5px">
+				<img src="<%= collection.photo.normal %>" ><br>
+				<%= link_to collection.name, collection_path(collection) %>
+			</div>
+		<% end %><br><br>
+		<h3>Usuarios sugeridos</h3>
+		<% if user_signed_in? %>
+			<% @users.each do |user| %>
+				<div class="collection_index" style="padding: 5px 0 0 5px">
+					<img src="<%= user.photo.thumb %>" >
+					<%= link_to user.name, user_path(user) %> <br>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="col-md-6 col-sm-12">
+		<% @sucesos.each do |evento|%>
+			<div class="evento row">
+				
+				<div class="">
+					<img src="<%= evento.user.photo.thumb %>" class="foto-index">
+				</div>
+				<div class="col-9">
+					<p class="texto-index"><%= link_to evento.user.name, user_path(evento.user_id) %> <%= evento.activity.category.past %>
+					<%= link_to evento.activity.name, activity_path(evento.activity.id) %><br>
+					Categoría: <%= evento.activity.category.sustantivo %></p>
+				</div>
+				<div>
+					<img src="<%= evento.activity.photo.normal %>">
+					<% evento.actuser_photo.each do |pho| %>
+						<img src="<%= pho.photo %>">
+					<% end %>
+					<br>
+					<p><%= time_ago_in_words(evento.created_at) %></p>
+				</div>
+			</div>
+		<% end %>
+	<div>
+<div>
+
+
+<br>
+<hr>
+<h5>Conectados</h5>
+<% if user_signed_in? %>
+	<% @contacts.each do |contact| %>
+		<%= link_to User.find(contact.followed_id).name, user_path(User.find(contact.followed_id)) %><br>
+	<% end %>
+<% end %>
+
+<br><br>
+
+<hr>
+
+<h5>Publicidad</h5>
+
+<% @promotes.each do |promote| %>
+	<%= promote.activity.name %><br>
+<% end %>
+
+
+<script>
+  $("[name=q]").keyup(function(event){
+    if($(this).val().length > 2 || $(this).val().length == 0){
+      $.ajax({
+        url: '<%= pages_index_path %>',
+        type: 'GET',
+        dataType: 'script',
+        data: {q: $(this).val()
+      }
+
+    })}
+  })
+</script>
+

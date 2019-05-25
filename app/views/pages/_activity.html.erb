@@ -1,0 +1,12 @@
+
+  <% @entities.each do |entity| %>
+  <ul class="resultado_fila">
+  	<%if entity.class == Activity %>
+  		<li><%= link_to entity.name, activity_path(entity.id) %> | <%= entity.category.name %></li>
+  	<% else %>
+  		<li><%= link_to entity.name, collection_path(entity.id) %> | Collection </li>
+  	<% end %>
+  </ul>
+  <% end %>
+
+     

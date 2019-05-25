@@ -1,0 +1,17 @@
+<h3>Crear Promociones de <%= current_user.name %></h3><br>
+
+<h5>Elija una actividad a promocionar</h5>
+
+<% if user_signed_in? %>
+	<%= form_with model: @promote_activity, url: promote_activities_path, method: :post, local: true do |f| %>
+
+		<%= f.label :activity %>
+		<%= f.collection_select :activity_id, @activities, :id, :name, :prompt => true %><br>
+
+		<%= f.label :monto_a_promocionar %>
+		<%= f.number_field :amount, :class => 'text_field', :step => 0.5 %><br>
+
+		<%= f.submit "Enviar" %>
+
+	<% end %>
+<% end %>

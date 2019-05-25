@@ -1,0 +1,28 @@
+<div class= col-4">
+	<img src="<%= @user.photo.thumb %>" class="foto_usuario"> 
+	<h2><%= @user.name %></h2>
+</div>
+<br>
+<div id="calendar">
+</div>
+
+<script>
+	$("#calendar").fullCalendar({
+		events: '<%= user_calendar_path %>',
+		
+		eventDrop: function( event, delta, revertFunc, jsEvent, ui, view) {
+			$.ajax({
+				url: '/edit_calendar/' + event.id,
+				type: 'PATCH',
+				dataType: 'json',
+				data: {
+					user_activity: {start: event.start.format(), },
+					authenticity_token: "<%= form_authenticity_token %>"
+				}
+			})
+		},
+
+		editable: true,
+		displayEventTime: false,
+	})
+</script>

@@ -1,0 +1,22 @@
+<div class="agregar-info col-6">
+	<h4><%= @user.name %> <%= @user_activity.activity.category.past %> <%= @user_activity.activity.name %>.</h4>
+	<p>Agregue más información sobre su actividad.</p>
+
+	<img src="<%= @user_activity.activity.photo.normal %>" ><br><br>
+	<div class="useract_fecha">
+		<% if user_signed_in? && can?(:update, @user_activity) %>
+			<%= form_with model: @user_activity, url: user_activity_path(@user_activity), method: :patch, local: true do |f| %>
+
+				<%= f.label :fecha_actividad %>
+				<%= f.text_field :start, id: :event_start %><br><br>
+
+				<%= f.label :agregar_foto_personal %><br>
+		    	<%= f.file_field :photo %> <br><br>
+
+				<%= f.submit "Enviar" %><br><br>
+
+			<% end %>
+		<% end %>
+	</div>
+
+</div>

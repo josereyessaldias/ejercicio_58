@@ -1,0 +1,25 @@
+<h2>Editar Actividad </h2>
+<br>
+<% if user_signed_in? %>
+	<%= form_with model: @activity, url: activity_path(@activity), method: :patch, local: true do |f| %>
+		
+		<%= f.label :name %>
+		<%= f.text_field :name %>	<br>
+
+		<%= f.label :author %>
+		<%= f.text_field :author %>	<br>
+
+		<%= f.label :category %>
+		<%= f.collection_select :category_id, @categories, :id, :name, :prompt => true %> <br>
+
+
+	    <%= f.label :photo %> <br>
+	    <%= f.file_field :photo %>
+	    <%= f.text_field :remote_photo_url %><br>
+
+			
+
+		<%= f.submit "Enviar" %>
+
+	<% end %>
+<% end %>

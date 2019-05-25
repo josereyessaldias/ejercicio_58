@@ -1,0 +1,143 @@
+
+.logo {
+	text-align: center;
+	padding: 15px 0 15px 0;
+}
+
+
+.cuerpo {
+	margin: 0 50px 0 50px;
+	font-size: 12px;
+}
+
+.nav-top {
+	position: -webkit-sticky; /* Safari */
+  	position: sticky;
+  	top: 0;
+	padding: 7px 0 7px 0;
+	margin: 0 0 5px 0;
+}
+
+.nav-inicio {
+	display: inline;
+	padding: 0 0 0 16px;
+}
+.nav-topleft {
+	float: right;
+	display: inline;
+}
+
+.nav-elemento{
+	padding: 0 12px 0 12px;
+}
+
+/*  esto son estilos de index*/
+.foto-index {
+	border-radius: 6px;
+	margin: 0 0 10px 0;
+}
+
+.texto-index {
+}
+
+.evento {
+	margin: 10px 10px 10px 10px;
+	padding: 5px;
+	border: solid 1px black;
+}
+
+#resultado {
+	background-color: white;
+  	z-index: 1;
+  	float: left;
+}
+
+.resultado_fila{
+	line-height: 1.5;
+	list-style-type: none;
+	margin: 0 0 0 0;
+	padding: 5px 0 0 0;
+	width: 260px;
+}
+
+.resultado_fila li {
+	border-bottom: solid 1px lightgray;
+}
+
+.collection_index {
+	border: solid 1px lightgray;
+}
+
+/*  esto son estilos de edit user_act*/
+.agregar-info {
+	margin: 20px 0 0 20%;
+	border: solid 1px black;
+}
+
+/*  esto son estilos de user_page*/
+.titulo-user{
+	margin: 0 0 0 0;
+	position: absolute;
+  	top: 22px;
+}
+
+.letra-circulo{
+	background: rgb(240,50,50);
+	border-radius: 0.8em;
+	-moz-border-radius: 0.8em;
+	-webkit-border-radius: 0.8em;
+	color: #ffffff;
+/*	display: inline-block; */
+	line-height: 1.4em;
+	margin-right: 10px;
+	text-align: center;
+	font-size: 40px;
+	width: 1.4em;
+	float: left;
+}
+.foto-user{
+	margin: 0 0 0 0;
+	
+
+}
+
+.foto_usuario {
+	border-radius: 6px;
+	margin: 20px 0 0 0;
+}
+
+
+/*  esto son estilos de activity */
+
+.fondo_activity {
+	min-height: 88vh;
+	width: 100%;
+	padding: 30px 30px 30px 30px;
+}
+
+.cuadro_centro_act {
+	padding: 20px 10% 20px 10%;
+	background-color: rgba(215, 215, 255, 0.75);
+	height: 88vh;
+	border-radius: 6px;
+}
+
+.boton {
+	text-align: right;
+}
+
+
+
+
+@media (max-width:800px) {
+
+
+	.barrita{
+		display: none;
+	}
+	.titulo-user{
+	
+	margin: 20px 0 0 0;
+	border: solid 1px black;
+}
+}

@@ -1,0 +1,48 @@
+<div id="fondo-act" class="fondo_activity">
+
+	<div class="cuadro_centro_act">
+		<div class="row">
+			<div class="col-6">
+				<h3><%= @collection.name %></h3><br>
+				<img src="<%= @collection.photo.normal %>">
+			</div>
+
+			<div class="col-6">
+				<% if @registrada %>
+					<%= link_to 'Dejar de seguir esta Colección', user_collection_path(@collection.id), method: :delete, :class => 'btn btn-info'%>
+				<% else %>
+					<%= link_to 'Seguir esta Colección', user_collections_path(:collection_id => @collection.id), method: :post, :class => 'btn btn-info'%>
+				<% end %>
+				<br><br>
+				<h5>Actividades en esta colección:</h5>
+				<ol>
+					<% @collection.activities.each do |activity| %>
+						<li><h6><%= link_to activity.name, activity_path(activity) %>
+							<% current_user.activities.each do |my_act| %>
+								<% if my_act.id == activity.id %>
+									<i>actividad realizada</i>
+								<% end %>
+							<% end %>
+
+						</h6></li>
+					<% end %>
+				</ol>
+
+			</div>
+			
+			<br>
+
+		</div>
+		
+
+		<img src="<%= @collection.photo %>" id="lo" style="display: none">
+	</div>
+</div>
+
+<script>
+		
+		$("#fondo-act").backstretch(document.getElementById("lo").src)
+		
+		
+
+</script>
