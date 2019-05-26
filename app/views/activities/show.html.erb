@@ -9,10 +9,11 @@
 			<div class="col-6 boton">
 				<% if user_signed_in? %>
 					<% if @registrada %>
-					<%= link_to 'Borrar registro de actividad', user_activity_path(@user_activity.id), method: :delete, :class => 'btn btn-danger', :style => 'color:white;' %>
+					<%= link_to 'Marcar como Actividad Realizada', user_activity_path(@user_activity,:enmendar => true), method: :patch, :class => 'btn boton-tipo' %><br><br>
+					<%= link_to 'Borrar registro de actividad', user_activity_path(@user_activity.id), method: :delete, :class => 'btn boton-tipo' %>
 					<% else %>
-						<%= link_to 'Registrar actividad', user_activities_path(:activity_id=> @activity.id, :status=> 'realizada',:user_id => current_user.id), method: :post, :class => 'btn btn-danger' %>
-						<%= link_to 'Marcar como por realizar', user_activities_path(:activity_id=> @activity.id, :status=> 'por_hacer',:user_id => current_user.id), method: :post, :class => 'btn btn-warning', :style => 'color:white;' %>
+						<%= link_to 'Registrar actividad', user_activities_path(:activity_id=> @activity.id, :status=> 'realizada',:user_id => current_user.id), method: :post, :class => 'btn boton-tipo' %>
+						<%= link_to 'Marcar como por realizar', user_activities_path(:activity_id=> @activity.id, :status=> 'por_hacer',:user_id => current_user.id), method: :post, :class => 'btn boton-tipo' %>
 					<% end %>
 				<% end %>
 				<br><br>
@@ -28,7 +29,7 @@
 		</div>
 		<br>
 		<% if can?(:edit, @activity) %>
-			<%= link_to 'Editar actividad', edit_activity_path(@activity.id), :class => 'btn btn-info', :style => 'color:white;' %>
+			<%= link_to 'Editar actividad', edit_activity_path(@activity.id), :class => 'btn boton-tipo' %>
 		<% end %>
 
 		<img src="<%= @activity.photo %>" id="lo" style="display: none">

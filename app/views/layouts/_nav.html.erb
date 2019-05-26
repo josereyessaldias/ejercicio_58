@@ -1,7 +1,7 @@
-<div class="bg-light nav-top barrita">
+<div class="nav-top barrita">
   
     <div class="nav-inicio">
-      <%= link_to 'Inicio', root_path %>
+      <%= link_to 'Inicio', root_path, :class => 'texto-barra' %>
     </div>
   
 
@@ -9,22 +9,22 @@
 
         <div class="nav-topleft">
 
-          <strong><%= link_to current_user.name, user_path(current_user), :class => 'nav-elemento' %></strong>
+          <strong><%= link_to current_user.name, user_path(current_user), :class => 'nav-elemento texto-barra' %></strong>
 
-          <%= link_to 'Promocionar Actividad', new_promote_activity_path, :class => 'nav-elemento' %>
+          <%= link_to 'Promocionar Actividad', new_promote_activity_path, :class => 'nav-elemento texto-barra' %>
 
-          <%= link_to 'Historial Promociones', promote_activity_path(current_user.id), :class => 'nav-elemento' %>
+          <%= link_to 'Historial Promociones', promote_activity_path(current_user.id), :class => 'nav-elemento texto-barra' %>
 
-          <%= link_to 'Salir', destroy_user_session_path, method: :delete, :class => 'nav-elemento' %>
+          <%= link_to 'Salir', destroy_user_session_path, method: :delete, :class => 'nav-elemento texto-barra' %>
 
        </div>
     <% else %>
 
       <div class="nav-topleft">
 
-        <%= link_to 'Ingresar', new_user_session_path, :class => 'nav-elemento' %>
+        <%= link_to 'Ingresar', new_user_session_path, :class => 'nav-elemento texto-barra' %>
 
-        <%= link_to 'Registrarse', new_user_registration_path, :class => 'nav-elemento' %>
+        <%= link_to 'Registrarse', new_user_registration_path, :class => 'nav-elemento texto-barra' %>
       
       </div>
     <% end %>

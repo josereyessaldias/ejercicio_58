@@ -9,9 +9,9 @@
 
 			<div class="col-6">
 				<% if @registrada %>
-					<%= link_to 'Dejar de seguir esta Colección', user_collection_path(@collection.id), method: :delete, :class => 'btn btn-info', :style => 'color:white;' %>
+					<%= link_to 'Dejar de seguir esta Colección', user_collection_path(@collection.id), method: :delete, :class => 'btn boton-tipo' %>
 				<% else %>
-					<%= link_to 'Seguir esta Colección', user_collections_path(:collection_id => @collection.id), method: :post, :class => 'btn btn-info', :style => 'color:white;' %>
+					<%= link_to 'Seguir esta Colección', user_collections_path(:collection_id => @collection.id), method: :post, :class => 'btn boton-tipo' %>
 				<% end %>
 				<br><br>
 				<h5>Actividades en esta colección:</h5>

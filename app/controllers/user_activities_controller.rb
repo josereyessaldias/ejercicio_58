@@ -21,7 +21,10 @@ class UserActivitiesController < ApplicationController
   def update
     @user_activity = UserActivity.find(params[:id])
     authorize! :update, @user_activity
-    if @user_activity.status == "realizada" && params[:user_activity][:start] > Time.now
+    if params[:enmendar]
+      @user_activity.update(status: "realizada")
+      redirect_to edit_user_activity_path(@user_activity), notice: 'confirme la fecha de realización de actividad'
+    elsif @user_activity.status == "realizada" && params[:user_activity][:start] > Time.now
       redirect_to edit_user_activity_path(@user_activity), notice: 'Para actividades ya realizadas debe ingresar una fecha anterior a la actual'
     elsif @user_activity.status == "por_hacer" && params[:user_activity][:start] < Time.now
       redirect_to edit_user_activity_path(@user_activity), notice: 'Para actividades por realizar debe ingresar una fecha posterior a la actual' 

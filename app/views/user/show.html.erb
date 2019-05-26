@@ -2,7 +2,7 @@
 	<div class="letra-circulo">
 		<%= @user.name[0].capitalize %>
 	</div>
-	<h2 style="color:rgb(240,50,50);float: left">Colecciones de<br><%= @user.name %></h2>
+	<h4 class="nombre-user">Colecciones de<br><%= @user.name %></h4>
 </div>
 
 
@@ -12,13 +12,13 @@
 	</div>
 	<div class="col-3 mt-5">
 		<% @cats_user_done.each do |category| %>
-			<h6>Total de <%= category.sustantivo %> que <%= category.past %>: #</h6>
+			<p>Total de <%= category.sustantivo %> que <%= category.past %>: #</p>
 		<% end %>
 		
 	</div>
 
 	<div class="col-7">
-		<h5 style="text-align:center" class="mt-1 mb-2">Colecciones</h5>
+		<h6 style="text-align:center" class="mt-1 mb-2">Colecciones</h6>
 		<div class="row">
 			<% @user_collections.each do |coll| %>
 
@@ -46,14 +46,14 @@
 <div class="row">
 	<div class="col-12 col-md-5 pl-0 pr-2" >
 		<%if @trekking != [] %>
-			<h5 style="text-align:center;">Trekkings y lugares visitados</h5>
+			<h6 style="text-align:center;">Trekkings y lugares visitados</h6>
 		 	<div id="map" style="height: 240px;"></div>
 		<% end %>
 	</div>
 
 
 	<div class="col-12 col-md-7">
-		<h5 style="text-align:center">Actividades por año</h5>
+		<h6 style="text-align:center">Actividades por año</h6>
 		<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 		<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 		<% my_chart = UserActivity.where(user_id: current_user.id).group_by_year(:start).count %>
@@ -66,10 +66,10 @@
 
 <div class="row">
 	<div class="col-12 col-md-6">
-		<h3><%= @titulo_done %></h3>
+		<h5><%= @titulo_done %></h5>
 
 		<% @cats_user_done.each do |category| %>
-			<h5><%= category.sustantivo %> que <%= category.past %></h5>
+			<h6><%= category.sustantivo %> que <%= category.past %></h6>
 			<div style="margin: 0 0 10px">
 				<% @user_act_done.each do |suceso| %>
 					<% if suceso.activity.category_id == category.id %>
@@ -97,11 +97,11 @@
 
 	<div class="col-12 col-md-6">
 		<% if @titulo_wish %>
-			<h3><%= @titulo_wish %><%= link_to "Ver en Calendario", user_calendar_path(@user.id), :class=> 'btn btn-sm float-right', :style=> 'width:180px;background-color:rgb(50,180,50);color:white' %></h3>			
+			<h5><%= @titulo_wish %><%= link_to "Ver en Calendario", user_calendar_path(@user.id), :class=> 'btn btn-sm float-right', :style=> 'width:180px;background-color:rgb(106,37,94);color:white' %></h5>			
 		<% end %>
 
 		<% @cats_user_wish.each do |category| %>
-			<h5><%= category.sustantivo %> que <%= category.futuro %></h5>
+			<h6><%= category.sustantivo %> que <%= category.futuro %></h6>
 			<div style="margin: 0 0 10px">
 				<% @user_act_wish.each do |suceso| %>
 					<% if suceso.activity.category_id == category.id %>
