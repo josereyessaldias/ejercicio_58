@@ -95,17 +95,31 @@
 	width: 1.4em;
 	float: left;
 }
-.foto-user{
-	margin: 0 0 0 0;
-	
 
-}
 
 .foto_usuario {
 	border-radius: 6px;
 	margin: 20px 0 0 0;
+	width: 100%;
 }
 
+.recuadro-coleccion{
+	margin:0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.foto-coleccion {
+	width: 100%;
+}
+
+.coleccion-nombre{
+	position: absolute;
+  	top: 0px;
+  	width: 100%;
+  	text-align: center;
+  	background-color: rgba(250,250,250,0.8);
+
+}
 
 /*  esto son estilos de activity */
 

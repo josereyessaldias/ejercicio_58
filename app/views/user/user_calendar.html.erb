@@ -1,6 +1,15 @@
-<div class= col-4">
-	<img src="<%= @user.photo.thumb %>" class="foto_usuario"> 
-	<h2><%= @user.name %></h2>
+<div class="titulo-user">
+	<div class="letra-circulo">
+		<%= @user.name[0].capitalize %>
+	</div>
+	<h2 style="color:rgb(240,50,50);float: left">Calendario de<br><%= @user.name %></h2>
+</div>
+
+
+<div class="row">
+	<div class="foto-user col-5 col-md-3">
+		<img src="<%= @user.photo.normal %>" class="foto_usuario"> 
+	</div>
 </div>
 <br>
 <div id="calendar">

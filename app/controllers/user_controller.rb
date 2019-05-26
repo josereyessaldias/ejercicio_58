@@ -5,14 +5,31 @@ class UserController < ApplicationController
   	@user = User.find(params[:id])
     @categories = Category.all
 
-    @act_realizadas = UserActivity.realizadas
-    @act_user_realizadas = @act_realizadas.where(user_id: params[:id]).order(:created_at).reverse
-    
-    @act_pendientes = UserActivity.pendientes
-    @act_user_pendientes = @act_pendientes.where(user_id: params[:id]).order(:created_at).reverse
+    if user_signed_in?
+      @user_act_done = UserActivity.realizadas.where(user_id: params[:id]).order(:created_at).reverse
+      @titulo_done = "Actividades Realizadas"  if @user_act_done != []
+      @user_act_wish = UserActivity.por_realizar.where(user_id: params[:id]).order(:created_at).reverse
+      @titulo_wish = "Actividades Por Realizar"  if @user_act_wish != []
 
-    @act_por_realizar = UserActivity.por_realizar
-    @act_user_por_realizar = @act_por_realizar.where(user_id: params[:id]).order(:created_at).reverse
+      @cats_user_done = []
+      @user_act_done.each do |act|
+        if @cats_user_done.include? act.activity.category
+        else
+          @cats_user_done << act.activity.category
+        end
+      end
+
+      @cats_user_wish = []
+      @user_act_wish.each do |act|
+        if @cats_user_wish.include? act.activity.category
+        else
+          @cats_user_wish << act.activity.category
+        end
+      end
+
+      @user_collections = UserCollection.where(user_id: params[:id]).order(:created_at).reverse
+    end
+
 
     if user_signed_in?
       if current_user.contacting.find_by(followed_id: @user.id) != nil
