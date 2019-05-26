@@ -82,7 +82,7 @@ a:hover {
 .evento {
 	margin: 10px 10px 10px 10px;
 	padding: 5px;
-	border: solid 1px black;
+	border: solid 1px rgb(2,13,54);
 }
 
 #resultado {
@@ -104,13 +104,14 @@ a:hover {
 }
 
 .collection_index {
-	border: solid 1px lightgray;
+	border: solid 1px rgb(2,13,54);
+	padding: 5px 0 0 5px;
 }
 
 /*  esto son estilos de edit user_act*/
 .agregar-info {
 	margin: 20px 0 0 20%;
-	border: solid 1px black;
+	border: solid 1px rgb(2,13,54);
 }
 
 /*  esto son estilos de user_page*/
@@ -118,6 +119,14 @@ a:hover {
 	margin: 0 0 0 0;
 	position: absolute;
   	top: 22px;
+}
+
+.recuadro-user-resumen{
+	border: solid 1px rgb(250,190,67);
+	border-radius: 10px;
+	margin: 10px 0 0 0;
+	padding: 0 0 10px 0;
+	box-sizing: border-box;
 }
 
 .nombre-user{
@@ -196,6 +205,6 @@ a:hover {
 	.titulo-user{
 	
 	margin: 20px 0 0 0;
-	border: solid 1px black;
+	border: solid 1px rgb(2,13,54);
 }
 }

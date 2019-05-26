@@ -28,16 +28,17 @@
 		
 		<h5>Colecciones</h5>
 		<% @collections.each do |collection| %>
-			<div class="collection_index" style="padding: 5px 0 0 5px">
-				<img src="<%= collection.photo.normal %>" ><br>
-				<%= link_to collection.name, collection_path(collection) %>
+			<div class="collection_index p-1">
+				<%= link_to collection.name, collection_path(collection) %><br>
+				<img src="<%= collection.photo.normal %>" >
+				
 			</div>
 		<% end %><br><br>
 		
 		<h5>Mis Contactos</h5>
 		<% if user_signed_in? %>
 			<% @contacts.each do |contact| %>
-				<div class="collection_index" style="padding: 5px 0 0 5px">
+				<div class="collection_index">
 					<img src="<%= User.find(contact.followed_id).photo.thumb %>" >
 					<%= link_to User.find(contact.followed_id).name, user_path(User.find(contact.followed_id)) %><br>
 				</div>
@@ -47,7 +48,7 @@
 		<h5>Otros Usuarios registrados</h5>
 		<% if user_signed_in? %>
 			<% @users.each do |user| %>
-				<div class="collection_index" style="padding: 5px 0 0 5px">
+				<div class="collection_index">
 					<img src="<%= user.photo.thumb %>" >
 					<%= link_to user.name, user_path(user) %> <br>
 				</div>
@@ -82,7 +83,7 @@
 		<h5>Otras Actividades</h5>
 
 		<% @promotes.each do |promote| %>
-			<div style="border: solid 1px black">
+			<div class="collection_index p-2">
 				<%= link_to promote.activity.name, activity_path(promote.activity) %><br>
 				Categoría: <%= promote.activity.category.sustantivo %><br>
 				<img src="<%= promote.activity.photo.normal %>"><br>
