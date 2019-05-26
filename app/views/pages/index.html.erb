@@ -24,16 +24,27 @@
 <hr>
 
 <div class="row">
-	<div class="col-md-3 col-sm-12">
-		<br><br>
-		<h3>Colecciones</h3>
+	<div class="col-md-3 col-12">
+		
+		<h5>Colecciones</h5>
 		<% @collections.each do |collection| %>
 			<div class="collection_index" style="padding: 5px 0 0 5px">
 				<img src="<%= collection.photo.normal %>" ><br>
 				<%= link_to collection.name, collection_path(collection) %>
 			</div>
 		<% end %><br><br>
-		<h3>Usuarios sugeridos</h3>
+		
+		<h5>Mis Contactos</h5>
+		<% if user_signed_in? %>
+			<% @contacts.each do |contact| %>
+				<div class="collection_index" style="padding: 5px 0 0 5px">
+					<img src="<%= User.find(contact.followed_id).photo.thumb %>" >
+					<%= link_to User.find(contact.followed_id).name, user_path(User.find(contact.followed_id)) %><br>
+				</div>
+			<% end %>
+		<% end %>
+		<br>
+		<h5>Otros Usuarios registrados</h5>
 		<% if user_signed_in? %>
 			<% @users.each do |user| %>
 				<div class="collection_index" style="padding: 5px 0 0 5px">
@@ -42,8 +53,9 @@
 				</div>
 			<% end %>
 		<% end %>
+
 	</div>
-	<div class="col-md-6 col-sm-12">
+	<div class="col-md-6 col-12">
 		<% @sucesos.each do |evento|%>
 			<div class="evento row">
 				
@@ -65,28 +77,25 @@
 				</div>
 			</div>
 		<% end %>
-	<div>
+	</div>
+	<div class="col-md-3">
+		<h5>Otras Actividades</h5>
+
+		<% @promotes.each do |promote| %>
+			<div style="border: solid 1px black">
+				<%= link_to promote.activity.name, activity_path(promote.activity) %><br>
+				Categoría: <%= promote.activity.category.sustantivo %><br>
+				<img src="<%= promote.activity.photo.normal %>"><br>
+			</div>
+		<% end %>
+	</div>
 <div>
 
 
 <br>
-<hr>
-<h5>Conectados</h5>
-<% if user_signed_in? %>
-	<% @contacts.each do |contact| %>
-		<%= link_to User.find(contact.followed_id).name, user_path(User.find(contact.followed_id)) %><br>
-	<% end %>
-<% end %>
 
-<br><br>
 
-<hr>
 
-<h5>Publicidad</h5>
-
-<% @promotes.each do |promote| %>
-	<%= promote.activity.name %><br>
-<% end %>
 
 
 <script>
