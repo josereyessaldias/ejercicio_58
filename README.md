@@ -1,8 +1,8 @@
 # README
 
-Habilité ActiveAdmin (me costó muchísimo habilitarlo con cancancan funcioando). También instalé gemas chartkick y groupdate.
+Resolví el problema que provocaba ActiveAdmin con los css y javascripts. Mejoré el diseño del Home y del User Page. Mejoré en general el código. Como dato curioso: el googlemap me funciona en Heroku pero no en el servidor local
 
-repositorio heroku: https://ejercicio57.herokuapp.com
+repositorio heroku: https://ejercicio58.herokuapp.com
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
