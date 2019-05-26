@@ -9,6 +9,21 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+//= require jquery
+//= require active_admin/base
+//= require jquery-backstretch
+//= require rails-ujs
+//= require tether/dist/js/tether
+//= require moment/moment
+//= require fullcalendar/dist/fullcalendar
+//= require moment-timezone/moment-timezone
+//= require bootstrap4-datetimepicker/build/js/bootstrap-datetimepicker.min
+//= require underscore/underscore
+//= require gmaps/google
+//= require activestorage
+//= require turbolinks
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 
 
