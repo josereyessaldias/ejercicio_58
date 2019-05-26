@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //= require jquery
+//= require active_admin/base
 //= require jquery-backstretch
 //= require rails-ujs
 //= require tether/dist/js/tether
