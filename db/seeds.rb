@@ -110,5 +110,5 @@ ActivityCollection.create(activity_id: 10 , collection_id: 2)
 ActivityCollection.create(activity_id: 11 , collection_id: 2)
 ActivityCollection.create(activity_id: 12 , collection_id: 2)
 ActivityCollection.create(activity_id: 13 , collection_id: 2)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password',role:'admin')
 
